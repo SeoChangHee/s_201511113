@@ -1,22 +1,14 @@
-
 # coding: utf-8
-
-# In[7]:
-
-
 
 import lxml.html 
 import requests 
 
- 
 keyword='윤딴딴' 
 response = requests.get("http://music.naver.com/search/search.nhn?query="+keyword+"&x=0&y=0") 
 _html = lxml.html.fromstring(response.text) 
 
- 
 from lxml.cssselect import CSSSelector 
 
- 
 selector = CSSSelector('table[summary] > tbody > ._tracklist_move')    
 nodes = selector(_html) 
 
